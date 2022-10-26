@@ -1,0 +1,112 @@
+{% extends 'admin/admin_base.html'%}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white" style="background: white;">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Contact</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Donation Details
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <h5 class="page-title"><a href="{% url 'add_donationdetail' %}"
+                class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-primary">Add NEW</a></h5>
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row el-element-overlay">
+            <div class="table-responsive ">
+                <table class="table  bg-white table-hover">
+                    <thead>
+                        <tr class="text-logo bg-light">
+                            <td scope="col">#</td>
+                            <td scope="col">Full Name</td>
+                            <td scope="col">Email</td>
+                            <td scope="col">Amount</td>
+                            <td scope="col">Mobile</td>
+                            <td scope="col " colspan="2">Action</td>
+                        </tr>
+                    </thead>
+
+                    {% for i in all_donationdetail %}
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{i.user.user.first_name}} {{i.user.user.last_name}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.amount}}</td>
+                            <td scope="row">{{i.mobile}}</td>
+                            <td><a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-success"
+                                    href="{% url 'donationdetail_edit' i.pk %}" aria-expanded="false">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+
+                                </a></td>
+                            <td><a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-danger"
+                                    href="{% url 'delete_donationdetail' i.pk %}" aria-expanded="false">
+                                    <i class="fa fa-trash" aria-hidden="true" onclick="return confirm('Are you sure you want to delete this amount detail ?')"></i>
+
+                                </a></td>
+
+                        </tr>
+
+                    </tbody>
+                    {% endfor %}
+
+                </table>
+            </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    {% include 'admin/footer.html'%}
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+
+</div>
+</div>
+{% endblock %}

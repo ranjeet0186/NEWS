@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+ <!--header  -->
+ <header class="site-header">
+    <div class="top-header-bar">
+      <div class="container">
+        <div class="row flex-wrap justify-content-center justify-content-lg-between align-items-lg-center">
+          <div
+            class="col-12 col-lg-8 d-none d-md-flex flex-wrap justify-content-center justify-content-lg-start mb-3 mb-lg-0">
+            <!-- <div class="header-bar-email">
+              MAIL: <a href="#"><span class="__cf_email__"
+                  data-cfemail="#">ngo@satyakabir.com</span></a>
+            </div> -->
+            <div class="header-bar-text">
+              <p>MAIL: <span>ngo@satyakabir.com</span></p>
+            </div>
+            <div class="header-bar-text">
+              <p>PHONE: <span>07554919520 / +916265356673</span></p>
+            </div>
+          </div>
+          <div
+            class="col-12 col-lg-4 d-flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+            <div class="donate-btn">
+              <a href="#">Donate Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
+            <div class="site-branding d-flex align-items-center">
+              <a class="d-block" href="/" rel="home"><img class="d-block"
+                  src="{% static 'frontend/images/Gmf.png'%}" alt="logo" style="width:280px ;height:55px"></a>
+            </div>
+            <nav class="site-navigation d-flex justify-content-end align-items-center">
+            {% with request.resolver_match.url_name as url_name %}
+              <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-content-center">
+                <li class="{% if url_name == 'home' %}current-menu-item{% endif %}"><a href="{% url 'home'%}">Home</a></li>
+                <li class="{% if url_name == 'about' %}current-menu-item{% endif %}"><a href="{% url 'about'%}">About us</a></li>
+                <li class="{% if url_name == 'our_mission' %}current-menu-item{% endif %}"><a href="{% url 'our_mission'%}">Our Mission</a></li>
+                <li class="{% if url_name == 'ourprojects' %}current-menu-item{% endif %}"><a href="{% url 'ourprojects'%}">Our Projects</a></li>
+                 <li class="{% if url_name == 'our_team'%}current-menu-item{% endif %}"><a href="{% url 'our_team'%}">Our Team</a></li>
+                
+                <li class="{% if url_name == 'contact' %}current-menu-item{% endif %}"><a href="{% url 'contact'%}">Contact</a></li>
+                {% comment %} {% if request.user.is_authenticated %}
+                  <li class="{% if url_name == 'logout' %}current-menu-item{% endif %}"><a href="{% url 'logout'%}">Logout</a></li>
+                  {% else %} {% endcomment %}
+                   <li class="{% if url_name == 'login' %}current-menu-item{% endif %}"><a href="{% url 'login'%}">Login</a></li>
+                  {% comment %} {% endif %} {% endcomment %}
+
+                <li class="{% if url_name == 'signup' %}current-menu-item{% endif %}"><a href="{% url 'signup'%}">Register</a></li>
+              </ul>
+                {% endwith %} 
+            </nav>
+            <div class="hamburger-menu d-lg-none">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    
+</body>
+</html>

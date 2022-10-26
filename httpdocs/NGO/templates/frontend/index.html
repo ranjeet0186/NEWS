@@ -1,0 +1,397 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!--  -->
+{% block content %}
+
+<div class="swiper-container hero-slider">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide hero-content-wrap">
+      <img src="{% static 'frontend/images/xhero.jpg.pagespeed.ic.UlXoS3GVLR.jpg'%}" alt="">
+      <div class="hero-content-overlay position-absolute w-100 h-100">
+        <div class="container h-100">
+          <div class="row h-100">
+            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
+              <header class="entry-header">
+                <h1>Donate</h1>
+                <h4>4 a better world</h4>
+              </header>
+              <div class="entry-content mt-4">
+                <p>General ideas. But we make a life by what we give.” “Be the change you want to see in the world.”
+                  Has already secured his own.”</p>
+              </div>
+              <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
+                <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
+                <a href="#" class="btn orange-border">Read More</a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide hero-content-wrap">
+      <img src="{% static 'frontend/images/xhero.jpg.pagespeed.ic.UlXoS3GVLR.jpg'%}" alt="">
+      <div class="hero-content-overlay position-absolute w-100 h-100">
+        <div class="container h-100">
+          <div class="row h-100">
+            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
+              <header class="entry-header">
+                <h1>Donate</h1>
+                <h4>4 a better Future</h4>
+              </header>
+              <div class="entry-content mt-4">
+                <p>The life of a man consists not in seeing visions and in dreaming dreams, but in active charity and
+                  in willing service”</p>
+              </div>
+              <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
+                <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
+                <a href="#" class="btn orange-border">Read More</a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide hero-content-wrap">
+      <img src="{% static 'frontend/images/xhero.jpg.pagespeed.ic.UlXoS3GVLR.jpg'%}" alt="">
+      <div class="hero-content-overlay position-absolute w-100 h-100">
+        <div class="container h-100">
+          <div class="row h-100">
+            <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-start">
+              <header class="entry-header">
+                <h1>Donate</h1>
+                <h4>4 a better world</h4>
+              </header>
+              <div class="entry-content mt-4">
+                <p>“He who wished to secure the good of others,
+                  Has already secured his own.”</p>
+              </div>
+              <footer class="entry-footer d-flex flex-wrap align-items-center mt-5">
+                <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
+                <a href="#" class="btn orange-border">Read More</a>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pagination-wrap position-absolute w-100">
+    <div class="container">
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <div class="swiper-button-next flex justify-content-center align-items-center">
+    <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z" />
+      </svg></span>
+  </div>
+  <div class="swiper-button-prev flex justify-content-center align-items-center">
+    <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z" />
+      </svg></span>
+  </div>
+</div>
+{% comment %} cardsilder {% endcomment %}
+
+
+<div class="our-causes">
+  <div class="container">
+    <div class="row">
+      <div class="coL-12">
+        <div class="section-heading">
+          <h2 class="entry-title">Our Mission</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper-container causes-slider" id="demo" data-ride="carousel">
+          <div class="swiper-wrapper">
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              {% for i in range %}
+              <li data-target="#demo" data-slide-to="{{i}}"></li>
+              {% endfor %}
+            </ul>
+            {% for i in all_services %}
+            <div class="swiper-slide">
+              <div class="cause-wrap">
+                <figure class="m-0">
+                  <img src="{{i.image.url}}" alt="" height="200px" width="150px">
+                  <div
+                    class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
+                    <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
+                  </div>
+                </figure>
+                <div class="cause-content-wrap shadow-lg p-3 mb-5 bg-body rounded">
+                  <header class="entry-header d-flex flex-wrap align-items-center">
+                    <h3 class="entry-title w-100 m-0"><a href="{% url 'our_mission_view' i.id %}">{{i.title}}</a></h3>
+                  </header>
+                  <div class="entry-content">
+                    <p class="m-0">{{i.description|truncatechars:100 }}</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- indicator -->
+
+    <div class="swiper-button-next flex justify-content-center align-items-center">
+      <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z" />
+        </svg></span>
+    </div>
+
+    <div class="swiper-button-prev flex justify-content-center align-items-center">
+      <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z" />
+        </svg></span>
+    </div>
+
+  </div>
+</div>
+</div>
+{% comment %} #end {% endcomment %}
+
+<div class="home-page-welcome">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6 order-2 order-lg-1">
+        <div class="welcome-content">
+          <header class="entry-header">
+            <h2 class="entry-title">Wellcome to our Greatmaya foundation</h2>
+          </header>
+          <div class="entry-content mt-5">
+            <p>“The way you get meaning into your life is to devote yourself to loving others, devote yourself to your
+              community around you, and devote yourself to creating something that gives you purpose and meaning.”
+              “Every man must decide whether he will walk in the light of creative altruism or in the darkness of
+              destructive selfishness.”
+              “Generosity consists not the sum given,
+              But the manner in which it is bestowed”
+            </p>
+          </div>
+          <div class="entry-footer mt-5">
+            <a href="#" class="btn gradient-bg mr-2">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 mt-4 order-1 order-lg-2">
+        <img src="{% static 'frontend/images/gm.jpeg'%}" alt="welcome" height="400px">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="our-causes featured-cause">
+  <div class="container">
+    <div class="row">
+      <div class="coL-12">
+        <div class="section-heading">
+          <h2 class="entry-title">Our Projects</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper-container causes-slider" id="demo" data-ride="carousel">
+          <div class="swiper-wrapper">
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              {% for i in grange %}
+              <li data-target="#demo" data-slide-to="{{i}}"></li>
+              {% endfor %}
+            </ul>
+            {% for i in all_gallery %}
+            <div class="swiper-slide">
+              <div class="cause-wrap">
+                <figure class="m-0">
+                  <img src="{{i.image.url}}" alt="" height="200px">
+                  <div
+                    class="figure-overlay d-flex justify-content-center align-items-center position-absolute w-100 h-100">
+                    <a href="#" class="btn gradient-bg mr-2">Donate Now</a>
+                  </div>
+                </figure>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- indicator -->
+    <div class="swiper-button-next flex justify-content-center align-items-center">
+      <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z" />
+        </svg></span>
+    </div>
+    <div class="swiper-button-prev flex justify-content-center align-items-center">
+      <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z" />
+        </svg></span>
+    </div>
+  </div>
+</div>
+
+<div class="home-page-limestone">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="coL-12 col-lg-6">
+        <div class="section-heading">
+          <h2 class="entry-title">What we have achieved</h2>
+          <p class="mt-5">There is no exercise better for the heart than reaching down and lifting people up</p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="milestones d-flex flex-wrap justify-content-between">
+          <div class="col-12 col-sm-4 mt-5 mt-lg-0">
+            <div class="counter-box">
+              <div class="d-flex justify-content-center align-items-center">
+                <img src="{% static 'frontend/images/xteamwork.png.pagespeed.ic.zqJ_TwQEas.png'%}" alt="">
+              </div>
+              <div class="d-flex justify-content-center align-items-baseline">
+                <div class="start-counter" data-to="120" data-speed="2000"></div>
+                <div class="counter-k">K</div>
+              </div>
+              <h3 class="entry-title">Children helped</h3>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 mt-5 mt-lg-0">
+            <div class="counter-box">
+              <div class="d-flex justify-content-center align-items-center">
+                <img src="{% static 'frontend/images/xdonation.png.pagespeed.ic.J312XzHSQN.png'%}" alt="">
+              </div>
+              <div class="d-flex justify-content-center align-items-baseline">
+                <div class="start-counter" data-to="79" data-speed="2000"></div>
+              </div>
+              <h3 class="entry-title">Water wells</h3>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 mt-5 mt-lg-0">
+            <div class="counter-box">
+              <div class="d-flex justify-content-center align-items-center">
+                <img src="{% static 'frontend/images/xdove.png.pagespeed.ic.zhIm8i4SBQ.png'%}" alt="">
+              </div>
+              <div class="d-flex justify-content-center align-items-baseline">
+                <div class="start-counter" data-to="253" data-speed="2000"></div>
+              </div>
+              <h3 class="entry-title">Volunteeres</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container ">
+
+  <div class="section-heading">
+    <h2 class="entry-title">Our Testimonials</h2>
+  </div>
+  <div id="Testimonials" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    
+      <div class="row top-header-bar py-5">
+        <div class="col-lg-4"></div>
+
+      <div class="col-lg-4 ">    
+        {% for b in all_testimonials %}
+      <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" data-bs-interval="3000">
+        <div class="ms-3" style="width: 18rem; text-align: center; background: none;">
+          <img src="{{b.image.url}}" class="card-img-top" alt="..."  style="border-radius: 50%; width:100%; height:200px;">
+          <div class="card-body " >
+            <h5 class="card-title text-white">{{b.Name}}<br>
+              <span> {{b.designation}} </span>
+            </h5>
+            <p class="card-text text-white text-center">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+            impedit quo minus id quod maxime placeat ” </p>
+            
+          </div>
+        </div>
+      </div>
+      {% endfor %}   
+     
+    </div>
+    </div>
+  
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+   
+
+<!-- our partners -->
+<div class="our-causes featured-cause ">
+  <div class="container">
+    <div class="row">
+      <div class="coL-12">
+        <div class="section-heading">
+          <h2 class="entry-title">Our Partners</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 ">
+        <div class="swiper-container causes-slider mx-5" id="demo" data-ride="carousel">
+          <div class="swiper-wrapper py-5">
+            <ul class="carousel-indicators">
+
+
+              {% for i in prange %}
+              <li data-target="#demo" data-slide-to="{{i}}"></li>
+              {% endfor %}
+            </ul>
+            {% for i in all_ourpartners %}
+            <div class="swiper-slide ">
+              <div class="" style="width: 3o0px; height: 120px;" ><img class="card-img-top" src="{{i.image.url}}" alt="" height="100px" width="100px">
+               
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- indicator -->
+    <div class="swiper-button-next flex justify-content-center align-items-center">
+      <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z" />
+        </svg></span>
+    </div>
+    <div class="swiper-button-prev flex justify-content-center align-items-center">
+      <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z" />
+        </svg></span>
+    </div>
+  </div>
+</div>
+
+
+
+																											                            
+{% endblock %}

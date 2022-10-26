@@ -1,0 +1,240 @@
+{% extends 'frontend/admin_userbase.html'%}
+{% load static %}
+{% load i18n static %}
+{%load crispy_forms_tags %}
+
+{% block content %}
+
+<div id="content-related ">
+    <div class="module" id="recent-actions-module">
+        {% comment %} - ============================================================== --> {% endcomment %}
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper ">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb  bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Profile</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <div class="d-md-flex">
+                            <ol class="breadcrumb ms-auto">
+                                <li><a href="#" class="fw-normal">Dashboard</a></li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-12">
+                        <div class="white-box">
+                            <div class="user-bg">
+                                {% comment %} <img width="100%" alt="user" src="#"> {% endcomment %}
+
+                                <div class="overlay-box">
+                                    <div class="user-content">
+                                        <a href="javascript:void(0)"><img src="{{member.image.url}}"
+                                                class="thumb-lg img-circle" alt="img"></a>
+                                        <h4 class="text-white mt-2"> <strong>{{member.user.first_name}}
+                                                {{member.user.last_name}}</strong></h4>
+
+                                        <a href="{% url 'change_profile_picture' member.id %}"
+                                            class="btn gradient-bg px-3 btn-success mb-3">Change Profile Picture</a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="POST" class="container mt-3 contact-form" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-row d-flex">
+                                        <div class="form-group col-md-12">
+                                            <label for="firstname" class="form-label">First Name : </label>
+                                            <input type="text" class="form-control" id="firstname" name="firstname"
+                                                value="{{member.user.first_name}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row d-flex">
+
+                                        <div class=" form-group col-md-12">
+                                            <label for="lastname" class="form-label">Last Name :</label>
+                                            <input type="text" class="form-control" id="lastname" name="lastname"
+                                                value="{{member.user.last_name}}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="contact" class="form-label">Contact : </label>
+                                            <input type="number" class="form-control" id="contact" name="contact"
+                                                value="{{member.mobile}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md-12">
+                                            <label for="email" class="form-label">Email: </label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                value="{{member.user.username}}" readonly>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-row d-flex">
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Gender: </label>
+                                            {% if member.gender == 'Male' %}
+                                            <div
+                                                style="border:1px solid lightgrey ;padding:3px;border-radius:6px ;display: flex;">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input " id="customRadio"
+                                                        name="gender" value="Male" checked>
+                                                    <label class="custom-control-label " for="customRadio">Male</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline "
+                                                    style="margin: 0 10px;">
+                                                    <input type="radio" class="custom-control-input " id="customRadio2"
+                                                        name="gender" value="Female">
+                                                    <label class="custom-control-label "
+                                                        for="customRadio2">Female</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input " id="customRadio3"
+                                                        name="gender" value="Other">
+                                                    <label class="custom-control-label "
+                                                        for="customRadio3">Other</label>
+                                                </div>
+                                            </div>
+                                            {% else %}
+                                            <div
+                                                style="border:1px solid lightgrey ;padding:3px;border-radius:6px ;display: flex;">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input " id="customRadio"
+                                                        name="gender" value="Male">
+                                                    <label class="custom-control-label " for="customRadio">Male</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline "
+                                                    style="margin: 0 10px;">
+                                                    <input type="radio" class="custom-control-input " id="customRadio2"
+                                                        name="gender" value="Female" checked>
+                                                    <label class="custom-control-label "
+                                                        for="customRadio2">Female</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input " id="customRadio3"
+                                                        name="gender" value="Other">
+                                                    <label class="custom-control-label "
+                                                        for="customRadio3">Other</label>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+
+
+                                    <br>
+
+                                    <div class="form-row d-md-flex">
+                                        <div class="form-group col-md-6">
+                                            <input class="btn gradient-bg px-3 btn-success" type="submit"
+                                                value="Update Profile">
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {% include 'admin/footer.html'%}
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+
+    <!-- {% ifequal error 'no'%}
+    <script>
+        alert('Your profile has been updated');
+        window.location = ('{% url 'user_dashboard_view' member.id%}')
+    </script>
+    {% endifequal %} -->
+
+
+    {% ifequal error 'yes'%}
+    <script>
+        alert('Something went wrong,Try again...');
+
+    </script>
+    {% endifequal %}
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% ifequal error 'no'%}
+     <script> 
+                                             
+     alert("Your profile has been updated");                 
+     window.location = ('{% url 'user_dashboard_view' member.id%}')
+     </script>
+
+     {% endifequal %}
+
+
+
+    {% endblock%}

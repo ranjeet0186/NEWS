@@ -1,0 +1,108 @@
+{% extends 'admin/admin_base.html'%}
+{%load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="page-breadcrumb bg-white" style="background: white;">
+    <div class="row">
+      <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">Gallery</h4>
+
+        <div class="ms-auto text-end">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Services
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+    <h5 class="page-title tex-white"><a href="/backend/gallery_view"
+        class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-primary">View-Gallaery</a></h5>
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row el-element-overlay">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <form method="POST" class="form-horizontal" enctype="multipart/form-data">
+
+              <div class="card-body">
+                <h4 class="card-title">Add File</h4>
+
+                {% csrf_token %}
+                {{ form|crispy }}
+              </div>
+              <div class="border-top">
+                <div class="card-body">
+
+                  {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-dismissible alert-success">
+                    <button type="submit" class="close" data-dismiss="alert">
+                      ×
+                    </button>
+                    <strong>{{message}}<strong>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+                  <button type="submit"
+                    class=" sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-success">Submit</button>
+                  {% comment %} <input type="submit" value="Submit" class="btn btn-primary"> {% endcomment %}
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Container fluid  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- footer -->
+  <!-- ============================================================== -->
+  {% include 'admin/footer.html'%}
+  <!-- ============================================================== -->
+  <!-- End footer -->
+  <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends 'frontend/base.html' %}
+{% load static %}   
+  <!--  -->
+{% block content %} 
+<div class="single-page news-page">
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>News</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="news-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <div class="news-content">
+            <a href="#"><img src="{% static 'frontend/images/1.jpg '%}" alt=""></a>
+            <header class="entry-header d-flex flex-wrap justify-content-between align-items-center">
+              <div class="header-elements">
+                <div class="posted-date">March 12, 2020</div>
+                <h2 class="entry-title"><a href="#">Toys for Children Campaign</a></h2>
+                <div class="post-metas d-flex flex-wrap align-items-center">
+                  <span class="cat-links">in <a href="#">Causes</a></span>
+                  <span class="post-author">by <a href="#">Tom Phillips</a></span>
+                  <span class="post-comments"><a href="#">3 Comments</a></span>
+                </div>
+              </div>
+              <div class="donate-icon">
+                <a href="#"><img src="{% static 'frontend/images/donate-icon.png'%}" alt=""></a>
+              </div>
+            </header>
+            <div class="entry-content">
+              <p>Two of his philanthropic arms, Azim Premji Trust and Azim Premji Philanthropic Initiatives, are
+                classified as part of the promoter group, and hold 10.2% and 0.27% of the company respectively. While
+                the dividends over the years were sizable, what added to the corpus was the four buybacks that Wipro did
+                in the last five years.</p>
+            </div>
+            <footer class="entry-footer">
+              <a href="#" class="btn gradient-bg">Read More</a>
+            </footer>
+          </div>
+          <div class="news-content">
+            <a href="#"><img src="{% static 'frontend/images/2.jpg'%}" alt=""></a>
+            <header class="entry-header d-flex flex-wrap justify-content-between align-items-center">
+              <div class="header-elements">
+                <div class="posted-date">March 12, 2020</div>
+                <h2 class="entry-title"><a href="#">Toys for Children Campaign</a></h2>
+                <div class="post-metas d-flex flex-wrap align-items-center">
+                  <span class="cat-links">in <a href="#">Causes</a></span>
+                  <span class="post-author">by <a href="#">Tom Phillips</a></span>
+                  <span class="post-comments"><a href="#">3 Comments</a></span>
+                </div>
+              </div>
+              <div class="donate-icon">
+                <a href="#"><img src="{% static 'frontend/images/donate-icon.png'%}" alt=""></a>
+              </div>
+            </header>
+            <div class="entry-content">
+              <p>Scott, ex-wife of the world's richest man and Amazon founder Jeff Bezos, made the donation along with
+                her husband Dan Jewett. Scott said in a Medium post speaking about the decision that she is troubled by
+                rising wealth inequality and believed that "solutions are best designed and implemented by others".</p>
+            </div>
+            <footer class="entry-footer">
+              <a href="#" class="btn gradient-bg">Read More</a>
+            </footer>
+          </div>
+          <div class="news-content">
+            <a href="#"><img src="{% static 'frontend/images/3.jpg'%}" alt=""></a>
+            <header class="entry-header d-flex flex-wrap justify-content-between align-items-center">
+              <div class="header-elements">
+                <div class="posted-date">March 12, 2020</div>
+                <h2 class="entry-title"><a href="#">Toys for Children Campaign</a></h2>
+                <div class="post-metas d-flex flex-wrap align-items-center">
+                  <span class="cat-links">in <a href="#">Causes</a></span>
+                  <span class="post-author">by <a href="#">Tom Phillips</a></span>
+                  <span class="post-comments"><a href="#">3 Comments</a></span>
+                </div>
+              </div>
+              <div class="donate-icon">
+                <a href="#"><img src="{% static 'frontend/images/donate-icon.png'%}" alt=""></a>
+              </div>
+            </header>
+            <div class="entry-content">
+              <p>Here, AFP takes a look at the Gates Foundation, from how it works and what projects it finances, to its
+                impact on the pandemic and how the non-profit may be impacted by the split..</p>
+            </div>
+            <footer class="entry-footer">
+              <a href="#" class="btn gradient-bg">Read More</a>
+            </footer>
+          </div>
+          <ul class="pagination d-flex flex-wrap align-items-center p-0">
+            <li class="active"><a href="#">01</a></li>
+            <li><a href="#">02</a></li>
+            <li><a href="#">03</a></li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="sidebar">
+            <div class="search-widget">
+              <form class="flex flex-wrap align-items-center">
+                <input type="search" placeholder="Search...">
+                <button type="submit" class="flex justify-content-center align-items-center">GO</button>
+              </form>
+            </div>
+            <div class="popular-posts">
+              <h2>Popular Posts</h2>
+              <ul class="p-0">
+                <li class="d-flex flex-wrap justify-content-between align-items-center">
+                  <figure><a href="#"><img src="{% static 'frontend/images/p-1.jpg '%}" alt=""></a></figure>
+                  <div class="entry-content">
+                    <h3 class="entry-title"><a href="#">A new cause to help</a></h3>
+                    <div class="posted-date">MArch 12, 2020</div>
+                  </div>
+                </li>
+                <li class="d-flex flex-wrap justify-content-between align-items-center">
+                  <figure><a href="#"><img src="{% static 'frontend/images/p-2.jpg '%}" alt=""></a></figure>
+                  <div class="entry-content">
+                    <h3 class="entry-title"><a href="#">We love to help people</a></h3>
+                    <div class="posted-date">MArch 10, 2020</div>
+                  </div>
+                </li>
+                <li class="d-flex flex-wrap justify-content-between align-items-center">
+                  <figure><a href="#"><img src="{% static 'frontend/images/p-3.jpg '%}" alt=""></a></figure>
+                  <div class="entry-content">
+                    <h3 class="entry-title"><a href="#">The new ideas for helping</a></h3>
+                    <div class="posted-date">MArch 09, 2020</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="upcoming-events">
+              <h2>Upcoming Events</h2>
+              <ul class="p-0">
+                <li class="d-flex flex-wrap justify-content-between align-items-center">
+                  <figure><a href="#"><img src="{% static 'frontend/images/u-1.jpg '%}" alt=""></a></figure>
+                  <div class="entry-content">
+                    <h3 class="entry-title"><a href="#">Fundraiser for Kids</a></h3>
+                    <div class="post-metas d-flex flex-wrap align-items-center">
+                      <span class="posted-date"><a href="#">Aug 25, 2020</a></span>
+                      <span class="event-location"><a href="#">Ball Room New York</a></span>
+                    </div>
+                    <p>This philanthropist's journey began with funding the education of her driver's son</p>
+                  </div>
+                </li>
+                <li class="d-flex flex-wrap justify-content-between align-items-center">
+                  <figure><a href="#"><img src="{% static 'frontend/images/u-2.jpg '%}" alt=""></a></figure>
+                  <div class="entry-content">
+                    <h3 class="entry-title"><a href="#">The childrens</a></h3>
+                    <div class="post-metas d-flex flex-wrap align-items-center">
+                      <span class="posted-date"><a href="#">Aug 25, 2020</a></span>
+                      <span class="event-location"><a href="#">Ball Room New York</a></span>
+                    </div>
+                    <p>Banksy's 'Game Changer' - inspired by response to pandemic - to go under the hammer; proceeds
+                      will go to NHS charities.</p>
+                  </div>
+                </li>
+                <li class="d-flex flex-wrap justify-content-between align-items-center">
+                  <figure><a href="#"><img src="{% static 'frontend/images/u-3.jpg '%}" alt=""></a></figure>
+                  <div class="entry-content">
+                    <h3 class="entry-title"><a href="#">Bring water </a></h3>
+                    <div class="post-metas d-flex flex-wrap align-items-center">
+                      <span class="posted-date"><a href="#">Aug 25, 2020</a></span>
+                      <span class="event-location"><a href="#">Ball Room New York</a></span>
+                    </div>
+                    <p>Street artist Banksy's painting sells for record $23.1 mn, money to be donated towards UK health
+                      charities.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="featured-cause">
+              <h2>Featured Causes</h2>
+              <div class="cause-wrap">
+                <figure class="m-0 position-relative">
+                  <a href="#"><img src="{% static 'frontend/images/xcause-3.jpg.pagespeed.ic.NFC0pYYQ9n.jpg '%}" alt=""></a>
+                </figure>
+                <div class="cause-content-wrap">
+                  <header class="entry-header d-flex flex-wrap align-items-center">
+                    <h3 class="entry-title w-100 m-0"><a href="#">Bring water to the childrens</a></h3>
+                  </header>
+                  <div class="entry-content">
+                    <p class="m-0">Two charities working together this summer to support bereaved Forces families.</p>
+                  </div>
+                  <div class="fund-raised w-100">
+                    <div class="fund-raised-bar-3 barfiller">
+                      <div class="tipWrap">
+                        <span class="tip"></span>
+                      </div>
+                      <span class="fill" data-percentage="83"></span>
+                    </div>
+                    <div class="fund-raised-details d-flex flex-wrap justify-content-between align-items-center">
+                      <div class="fund-raised-total mt-4">
+                        Raised: $56 880
+                      </div>
+                      <div class="fund-raised-goal mt-4">
+                        Goal: $70 000
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

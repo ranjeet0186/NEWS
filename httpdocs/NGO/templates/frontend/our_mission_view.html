@@ -1,0 +1,50 @@
+{% extends 'frontend/base.html' %}
+{% load static %}   
+  <!--  -->
+{% block content %} 
+<div class="single-page about-page">
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Our Mission</h1>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <div class="welcome-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 order-2 order-lg-1">
+          <div class="welcome-content">
+            <header class="entry-header">
+              <h2 class="entry-title">{{service_view.title}}</h2>
+            </header>
+            <div class="entry-content mt-5">
+              <p>{{service_view.description}}</p>
+            </div>
+            <div class="entry-footer mt-5">
+              <a href="#" class="btn gradient-bg mr-2">Donate us</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
+          <img src="{{service_view.image.url}}" alt="welcome" height="500px">
+        </div>
+      </div>
+    </div>
+  </div> 
+ 
+  <div class="help-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
+          <h2>Help us so we can help others</h2>
+          <a class="btn orange-border" href="#">Donate now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+ {% endblock %}

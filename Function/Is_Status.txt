@@ -1,0 +1,127 @@
+'''def toggle_status(request, id):
+    if request.method == "POST":
+        status = CATEGORY.objects.get(id = id)
+        
+        status.status = True 
+        if request.POST.get(id):
+            status == True
+            status.save()
+            data = {'status':'success', 'status':status.status}
+            status.save()
+            messages.success(request, "Section was Private")
+        else:
+            status == False
+            status.save()
+            messages.success(request, "You Can see the Section")
+    return render(reverse_lazy, "backend/category.html")'''
+    
+'''def toggle_status(request,id):
+    print(id)
+    status = CATEGORY.objects.get(id=id)
+    print(status)
+    if request.method == "POST":
+        status.cate_status^= "True"
+        status.save()
+        print(status)
+        messages.success(request, "Section was Private")
+        return HttpResponseRedirect(reverse('category'))
+    else:
+        messages.success(request, "You Can see the Section")'''
+    
+'''def toggle_status(request, id):
+    CATEGORY.objects.filter(id=id).update(status=0)
+    messages.success(request, "Section was Private")
+    return HttpResponseRedirect(reverse('category'))'''
+
+'''def toggle_status(request):
+    w = CATEGORY.objects.get(id=request.POST['id'])
+    w.status = request.POST['cate_status'] == 'True'
+    w.save()
+    messages.success(request, "Section was Private")
+    return HttpResponseRedirect(reverse('category'))'''
+    
+def toggle_status(request, id):
+    print("=============Status================")
+    # data8 = CATEGORY.objects.get(id=id)
+    
+    # print(data8)
+    
+    
+    # cate_status = request.get['cate_status']
+    # print(cate_status)
+    # # data8.status = cate_status
+    # if cate_status:
+    #     data8.status = True
+    #     data8.save()
+    #     print(data8)
+    #     messages.success(request, "Update Successfully!!!") 
+    #     return HttpResponseRedirect(reverse('category'), {'data8':data8,})
+    # else:
+    #     data8.status = False
+    #     data8.save()
+    #     print(data8)
+    #     messages.warning(request, "Not Match!!!")
+    
+    obj = request.GET.get(id = id)
+    print(obj)
+    data = {
+        "obj": obj
+    }
+    print(data)
+    donate = CATEGORY.objects.get(id=id)
+    if donate.status == True: 
+        donate.status = False
+        donate.save()
+        print(donate)
+        messages.success(request, "Update Successfully!!!") 
+        
+    elif donate.status == False:
+        donate.status = True
+        donate.save()
+        messages.warning(request, "Not Match!!!")
+        
+    return HttpResponseRedirect(reverse('category'),{'data': data})
+    
+    # data8 = CATEGORY.objects.get(id=id)
+    # print(id)
+    
+    # cate_status = request.POST['cate_status']
+    # print("+++++++++++++++++++++++++++++++++++++=")
+    # print(cate_status)
+    
+    # data8.status = cate_status
+    # data8.save()
+    # messages.success(request, "Update Successfully!!!")
+    # return HttpResponseRedirect(reverse('category'))
+        
+    # w = CATEGORY.objects.get(id=request.POST['id'])
+    # w.status = request.POST['isworking'] == 'true'
+    # w.save()
+    # return HttpResponse('success')
+    
+    
+    # data7 = CATEGORY.objects.get(id = id)
+    # status = request.POST['cate_status']    
+    
+    # data7.status = status
+    
+    # data7.save()
+    # messages.success(request, "Update Successfully!!!") 
+    # return HttpResponseRedirect(reverse('category'))
+    
+    
+def is_home(request, id):
+    data9 = CATEGORY.get(id=id)
+    return render(request, "backend/category")
+
+# def toggle_status(request,id):
+#     status = CATEGORY.objects.get(id=id)
+#     status.is_working^=True
+#     status.save()
+#     return redirect(reverse_lazy('category'))
+
+def toggle(request):
+    w = CATEGORY.objects.get(id=request.POST['id'])
+    w.is_working = request.POST['isworking'] == 'true'
+    w.save()
+    return HttpResponse('success')

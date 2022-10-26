@@ -1,0 +1,156 @@
+{% extends 'admin/admin_base.html'%}
+
+
+{% load static %}
+
+
+    {% block content %}
+
+
+
+
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white" style="background: white;">
+              <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                  <h4 class="page-title">Our Team</h4>
+                  
+                  <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                          Our Team
+                        </li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+             <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+    <h5 class="page-title"><a href="/backend/add_our_team" class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-primary">Add NEW</a></h5>
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row el-element-overlay">
+
+
+
+      <div class="table-responsive ">
+        <table class="table table-hover bg-white ">
+          <thead >
+            <tr class="text-logo bg-light">
+              <td scope="col">#</td>
+              
+              <td scope="col">Name</td>
+              <td scope="col">Image</td>
+               <td scope="col">Designation</td>
+               <td scope="col">Mobile</td>
+              <td scope="col">Email</td>
+               <td scope="col">Address</td>
+              <td scope="col">Is_home</td>  
+              <td scope="col">Status</td> 
+
+              
+              
+              <td scope="col " colspan="2">Action</td>
+            </tr>
+          </thead>
+          {% for i in all_our_team %}
+          <tbody>
+            <tr>
+              <td scope="row">{{i.id}}</td>
+              <td>{{i.Name}}</td>
+
+              <td><img src="{{i.image.url}}" width="100px"></td>
+              <td>{{i.designation}}</td>
+              <td scope="row">{{i.mobile}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.address}}</td>
+              <td>
+
+                {% if i.is_home %}
+                   <p>ON</p>
+                {% else%}
+                     <p>OFF</p>
+                {% endif %}
+
+              </td>              
+              <td>
+                {% if i.status %}
+                   <p>ON</p>
+                {% else%}
+                     <p>OFF</p>
+                {% endif %}
+              </td>
+              
+              <td><a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-success" href="{% url 'our_team_edit' i.pk %}"
+                            aria-expanded="false">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                           
+                        </a></td>
+              <td><a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-danger" href="{% url 'delete_our_team' i.pk %}"
+                            aria-expanded="false">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                           
+                        </a></td>
+              
+            </tr>    
+            
+          </tbody>
+          {% endfor %}
+
+
+
+
+
+        </table>
+      </div>
+
+        
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+           {% include 'admin/footer.html'%}
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Page wrapper  -->
+          <!-- ============================================================== -->
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Wrapper -->
+    
+    </div>
+</div>
+{% endblock %}

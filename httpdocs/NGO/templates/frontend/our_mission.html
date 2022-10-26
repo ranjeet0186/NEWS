@@ -1,0 +1,47 @@
+{% extends 'frontend/base.html' %}
+{% load static %}   
+  <!--  -->
+{% block content %} 
+<div class="single-page about-page">
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Our Mission </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="welcome-wrap">
+    {% for i in all_services%}
+    <div class="container">
+       
+      <div class="row">
+        <div class="col-12 col-lg-6 order-2 order-lg-1">
+          <div class="welcome-content">
+            <header class="entry-header">
+              <h2 class="entry-title">#{{forloop.counter}} {{i.title}}</h2>
+            </header>
+            <div class="entry-content mt-5">
+              <p>{{i.description}}</p>
+            </div>
+            <div class="entry-footer mt-5">
+              <a href="#" class="btn gradient-bg mr-2">Donate now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
+          <img src="{{i.image.url}} " style="height: 50vh;" alt="welcome">
+        </div>
+      </div>
+
+       <hr>
+    </div>
+   
+    {% endfor %}
+  </div>
+ 
+
+
+  </div>
+ {% endblock %}

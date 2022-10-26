@@ -1,0 +1,30 @@
+{% extends 'frontend/base.html' %}
+{% load static %}   
+  <!--  -->
+{% block content %} 
+<div class="single-page page-header portfolio">
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Our Projects</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-wrap">
+    <div class="container">
+      <div class="row portfolio-container" >
+        {% for i in all_gallery %}
+        <div class="col-lg-4 portfolio-item">
+          <div class="portfolio-cont">
+            <img src="{{i.image.url}}" alt="" height="300px;" width="300px">
+            <h3 class="entry-title text-center">{{i.title}}</h3>         
+          </div>
+        </div>
+        {% endfor %}
+       </div>
+    </div>
+  </div>
+      
+{% endblock %}

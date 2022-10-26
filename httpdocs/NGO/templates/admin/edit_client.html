@@ -1,0 +1,179 @@
+{% extends 'admin/admin_base.html'%}
+{%load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white" style="background: white;">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Gallery</h4>
+
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Services
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <h5 class="page-title tex-white"><a href="/backend/gallery_view"
+                class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-primary">View-Gallaery</a>
+        </h5>
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row el-element-overlay">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <form method="POST" class="container mt-3 contact-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row d-flex">
+                                <div class="form-group col-md-12">
+                                    <label for="firstname" class="form-label">First Name : </label>
+                                    <input type="text" class="form-control" id="firstname" name="firstname"
+                                        value="{{member.user.first_name}}">
+                                </div>
+                            </div>
+
+                            <div class="form-row d-flex">
+
+                                <div class=" form-group col-md-12">
+                                    <label for="lastname" class="form-label">Last Name :</label>
+                                    <input type="text" class="form-control" id="lastname" name="lastname"
+                                        value="{{member.user.last_name}}">
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="contact" class="form-label">Contact : </label>
+                                    <input type="number" class="form-control" id="contact" name="contact"
+                                        value="{{member.mobile}}">
+                                </div>
+                            </div>
+                            <div class="form-row ">
+                                <div class="form-group col-md-12">
+                                    <label for="email" class="form-label">Email: </label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="{{member.user.username}}">
+                                </div>
+                            </div>
+
+
+                            <div class="form-row d-flex">
+                                <div class="form-group col-md-12">
+                                    <label class="form-label" >Gender: </label>
+                                    <div
+                                        style="border:1px solid lightgrey ;padding:3px;border-radius:6px ;display: flex;">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input " id="customRadio"
+                                                name="gender" value="Male" required>
+                                            <label class="custom-control-label " for="customRadio">Male</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline "
+                                            style="margin: 0 10px;">
+                                            <input type="radio" class="custom-control-input " id="customRadio2"
+                                                name="gender" value="Female" required>
+                                            <label class="custom-control-label " for="customRadio2">Female</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input " id="customRadio3"
+                                                name="gender" value="other" required>
+                                            <label class="custom-control-label " for="customRadio3">Other</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <br>
+
+                            <div class="form-row d-md-flex">
+                                <div class="form-group col-md-6">
+                                    <input class="btn gradient-bg px-3 btn-success" type="submit"
+                                        value="Update Profile">
+                                </div>
+
+                                <div class="form-group col-md-6 ">
+                                    <a href="{% url 'change_passworduser' %}"
+                                        class="btn gradient-bg px-3 btn-primary">Change Password</a>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    {% include 'admin/footer.html'%}
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+
+</div>
+</div>
+
+{% ifequal error 'no'%}
+<script>
+    alert('You updated profile');
+    window.location = ('{% url 'client_view' %}')
+    // window.location = ('{% url 'client_edit' member.id %}')
+</script>
+{% endifequal %}
+
+
+{% ifequal error 'yes'%}
+<script>
+    alert('Something went wrong,Try again...');
+
+</script>
+{% endifequal %}
+{% endblock %}

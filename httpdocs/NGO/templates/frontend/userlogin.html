@@ -1,0 +1,47 @@
+{% extends 'frontend/base.html' %}
+{%load crispy_forms_tags %}
+{% load static %}
+<!--  -->
+{% block content %}
+
+
+
+<div class="single-page contact-page">
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Login</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-page-wrap">
+    <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-3">
+        
+      </div>
+      <div class="col-12 col-lg-6">
+        <form method="post" class="contact-form ">
+          {% csrf_token %}
+          <label for="username"><b>Email</b></label>
+          <input type="text" placeholder="Enter your email or username " name="username" class="form-control" required>
+
+          <label for="password"><b>Passwrd</b></label>
+          <input type="password" class="form-control" placeholder="Enter Password" name="password" required>
+
+         
+            <small><a href="{% url 'password_reset' %}" class="text-danger py-3 btn" >Forgot Password ?</a></small>
+            <br>
+          <input class="btn gradient-bg px-5" type="submit" value="Login">
+          <a href="/signup/" style="text-decoration: none ;float: right;">Register here !</a><br>
+        </form>       
+      </div>
+    </div>     
+         
+    </div>
+  </div>
+</div>
+
+{% endblock %}

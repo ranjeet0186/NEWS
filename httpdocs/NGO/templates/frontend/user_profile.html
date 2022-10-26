@@ -1,0 +1,209 @@
+{% extends 'frontend/user_base.html'%}
+
+{% load i18n static %}
+{%load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Profile</h4>
+            </div>
+            
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+
+    
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg"> <img width="100%" alt="user"
+                            src="{% static 'plugins//images/large/img1.jpg'%}">
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                
+                                <a href="javascript:void(0)"><img src="{{request.user.members.image.url}}" class="thumb-lg img-circle"
+                                        alt="img"></a>
+                                <h3 class="text-white">{{user.first_name}} {{user.last_name}} </h3>       
+
+                               <h2> <a class="btn btn-success" href="{% url 'user_profile_picture'%}">Change Profile</a></h2>
+                               
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                         <form method="POST" class="container mt-3 contact-form" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-row d-flex">
+                                        <div class="form-group col-md-12">
+                                            <label for="firstname" class="form-label">First Name : </label>
+                                            <input type="text" class="form-control" id="firstname" name="firstname"
+                                                value="{{user.first_name}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row d-flex">
+
+                                        <div class=" form-group col-md-12">
+                                            <label for="lastname" class="form-label">Last Name :</label>
+                                            <input type="text" class="form-control" id="lastname" name="lastname"
+                                                value="{{user.last_name}}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="contact" class="form-label">Contact : </label>
+                                            <input type="number" class="form-control" id="contact" name="contact"
+                                                value="{{user.members.mobile}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="form-group col-md-12">
+                                            <label for="email" class="form-label">Email: </label>
+                                            <input type="email" class="form-control" readonly id="email" readonly name="email"
+                                                value="{{user.username}}">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row d-flex">
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Gender: <span class="text-danger">[{{user.members.gender}}]</span></label>
+                                            {% if user.members.gender == 'Male' %}
+                                            <div
+                                                style="border:1px solid lightgrey ;padding:3px;border-radius:6px ;display: flex;">
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input " id="customRadio"
+                                                        name="gender" value="Male"  checked>
+                                                    <label class="custom-control-label " for="customRadio">Male</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline "
+                                                    style="margin: 0 10px;">
+                                                    <input type="radio" class="custom-control-input " id="customRadio2"
+                                                        name="gender" value="Female">
+                                                    <label class="custom-control-label "
+                                                        for="customRadio2">Female</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" class="custom-control-input " id="customRadio3"
+                                                        name="gender" value="Other" >
+                                                    <label class="custom-control-label "
+                                                        for="customRadio3">Other</label>
+                                                </div>
+                                            </div>
+                                            {% else %}
+                                            <div
+                                            style="border:1px solid lightgrey ;padding:3px;border-radius:6px ;display: flex;">
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input " id="customRadio"
+                                                    name="gender" value="Male" >
+                                                <label class="custom-control-label " for="customRadio">Male</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline "
+                                                style="margin: 0 10px;">
+                                                <input type="radio" class="custom-control-input " id="customRadio2"
+                                                    name="gender" value="Female"  checked>
+                                                <label class="custom-control-label "
+                                                    for="customRadio2">Female</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" class="custom-control-input " id="customRadio3"
+                                                    name="gender" value="Other" >
+                                                <label class="custom-control-label "
+                                                    for="customRadio3">Other</label>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        </div>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="form-row d-md-flex">
+                                        <div class="form-group col-md-9">
+                                            <input class="btn gradient-bg px-3 btn-success" type="submit"
+                                                value="Update Profile">
+                                        </div>
+
+                                        <div class="form-group col-md-3 float-right">
+                                            
+
+                                            <a href="{% url 'change_passworduser'%}" class="btn gradient-bg px-3 btn-primary">Change Password</a>   
+                                        </div>
+
+                                       
+                                    </div>
+
+                                </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+   {% include 'admin/footer.html'%}
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+{% endblock%}

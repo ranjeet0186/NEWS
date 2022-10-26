@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n static %}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+
+
+    <aside class="left-sidebar" data-sidebarbg="skin6">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+            {% with request.resolver_match.url_name as url_name %}
+                <ul id="sidebarnav text-dark">
+                    <!-- User Profile-->
+                    <li class="sidebar-item pt-2">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin"
+                            aria-expanded="false">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <span class="hide-menu text-dark">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                    
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'admin_profile' %}active{% endif %}" href="{% url 'admin_profile'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span class="hide-menu">Profile</span>
+                        </a>
+                       
+                       
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'service_view' %}active{% endif %}" href="{% url 'service_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-hands-helping" aria-hidden="true"></i>
+                            <span class="hide-menu">Services</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'client_view' %}active{% endif %}" href="{% url 'client_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span class="hide-menu">Members</span>
+                        </a>
+                    </li>
+
+                     <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'donationdetail_view' %}active{% endif %}" href="{% url 'donationdetail_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-handshake" aria-hidden="true"></i>
+                            <span class="hide-menu">Manage Donation Details</span>
+                        </a>
+                    </li>
+
+                     <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'gallery_view' %}active{% endif %}" href="{% url 'gallery_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-images" aria-hidden="true"></i>
+                            <span class="hide-menu">Gallery</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'our_team_view' %}active{% endif %}" href="{% url 'our_team_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span class="hide-menu">Our Team</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'contact_view' %}active{% endif %}" href="{% url 'contact_view'%}"
+                            aria-expanded="false">
+                            <i class="fas fa-address-book" aria-hidden="true"></i>
+                            <span class="hide-menu">Manage Contact Requests</span>
+                        </a>
+                    </li>
+
+
+                     <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'contact_details_view' %}active{% endif %}" href="{% url 'contact_details_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span class="hide-menu">Manage Contacts Details</span>
+                        </a>
+                    </li>
+
+                     <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'testimonial_view' %}active{% endif %}" href="{% url 'testimonial_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-quote-right" aria-hidden="true"></i>
+                            <span class="hide-menu">Testimonials</span>
+                        </a>
+                    </li>
+
+                     <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link {% if url_name == 'ourpartners_view' %}active{% endif %}" href="{% url 'ourpartners_view'%}"
+                            aria-expanded="false">
+                            <i class="fa fa-handshake" aria-hidden="true"></i>
+                            <span class="hide-menu">Our Partners</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link text-dark" href="{% url 'logout' %}"
+                            aria-expanded="false">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span class="hide-menu ">{% translate 'Log out' %}</span>
+                        </a>
+                    </li>
+
+                    
+                </ul>
+                 {% endwith %} 
+
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+
+
+    
+</body>
+</html>

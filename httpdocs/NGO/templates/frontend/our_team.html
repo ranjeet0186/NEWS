@@ -1,0 +1,94 @@
+{% extends 'frontend/base.html' %}
+{% load static %}   
+  <!--  -->
+{% block content %}
+<div class="single-page causes-page"> 
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Our Team</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="featured-cause ">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-heading">
+            <h2 class="entry-title">BOARD OF DIRECTOR’S</h2>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row px-5 text-center">
+
+          {% for i in all_team %} 
+           {% if i.is_home %} 
+                 {% if i.status %}
+        <div class="col-lg-4 shadow-lg  mb-5 bg-body mx-3" style="border-radius: 10px; width:18rem;">
+          <!-- <div class="cause-wrap d-flex flex-wrap justify-content-between"> -->
+            <div class="p-3 ">
+                <div class="card  border-0" style="width: 100%;">
+                    <img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px" style="border-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h4>{{i.Name}}</h4>
+                      <p class="card-text">{{i.designation}}</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+              {% endif %}
+              {% endif %}
+          {% endfor%}
+        </div>        
+       
+      </div>
+    </div>
+
+
+    <div class="featured-cause">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-heading">
+                <h2 class="entry-title">Meet Our Team</h2>
+              </div>
+            </div>
+          </div>
+    
+    
+          <div class="row px-3 ">
+              {% for i in all_team %}
+                  {% if i.is_home %} 
+                         {% if i.status%} 
+
+                         {% else%}
+                                                          
+                  
+            <div class="col-lg-4 shadow-lg  mb-5 bg-body  mx-3" style="border-radius: 10px; width:18rem;">
+              <!-- <div class="cause-wrap d-flex flex-wrap justify-content-between"> -->
+                <div class="p-3 ">
+                    <div class="card  border-0" style="width: 100%;">
+                        <img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px" >
+                        <div class="card-body text-center">
+                            <h4>{{i.Name}}</h4>
+                          <p class="card-text">{{i.address}}</p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+                    {% endif %}
+              {% endif %}
+              {% endfor%}
+            </div>        
+           
+          </div>
+        </div>
+
+  </div>
+
+  
+  {% endblock %}

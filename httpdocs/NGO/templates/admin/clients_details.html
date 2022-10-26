@@ -1,0 +1,120 @@
+{% extends 'admin/admin_base.html'%}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="page-breadcrumb bg-white" style="background: white;">
+    <div class="row">
+      <div class="col-12 d-flex no-block align-items-center">
+        <h4 class="page-title">Members</h4>
+        <div class="ms-auto text-end">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Members
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row el-element-overlay">
+      <div class="table-responsive ">
+        <table class="table  bg-white table-hover ">
+          <thead>
+            <tr class="text-logo bg-light">
+              <th scope="col">#</th>
+
+              <th scope="col">Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Email</th>
+             
+              <th scope="col">Gender</th>
+              <th scope="col">Status</th>
+              <th scope="col " colspan="2">Action</th>
+            </tr>
+          </thead>
+          {% for i in all_users %}
+          <tbody>
+            <tr>
+              <td scope="row">{{forloop.counter}}</td>
+              <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+              <td><img src="{{i.image.url}}" width="100px"></td>
+              <td>{{i.mobile}}</td>
+              <td>{{i.user.username}}</td> 
+             
+               <td>{{i.gender}}</td>             
+              <td>{{i.status}}</td>
+              <td>
+              <a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-warning"
+                  href="{% url 'user_dashboard_view' i.id%}" aria-expanded="false">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                </a></td>
+
+                {% comment %} <a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-warning"
+                  href="{% url 'client_edit' i.id%}" aria-expanded="false">
+                  <i class="fa fa-edit" aria-hidden="true"></i>
+                </a>              {% endcomment %}
+              
+              <td><a class="sidebar-link waves-effect waves-dark sidebar-link text-white btn btn-danger"
+                  href="{% url 'delete_client' i.user.pk %}" aria-expanded="false">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+
+                </a></td>
+            </tr>
+
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Container fluid  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- footer -->
+  <!-- ============================================================== -->
+  {% include 'admin/footer.html'%}
+  <!-- ============================================================== -->
+  <!-- End footer -->
+  <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+
+</div>
+</div>
+{% endblock %}

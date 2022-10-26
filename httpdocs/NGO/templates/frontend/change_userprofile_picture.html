@@ -1,0 +1,141 @@
+{% extends 'frontend/user_base.html'%}
+{% load static %}
+{% load i18n static %}
+{%load crispy_forms_tags %}
+
+{% block content %}
+
+<div id="content-related ">
+    <div class="module" id="recent-actions-module">
+        {% comment %} - ============================================================== --> {% endcomment %}
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper ">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb  bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Profile</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <div class="d-md-flex">
+                            <ol class="breadcrumb ms-auto">
+                                <li><a href="#" class="fw-normal">Dashboard</a></li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-12">
+                        <div class="white-box">
+                            <div class="user-bg">
+                                {% comment %} <img width="100%" alt="user" src="#"> {% endcomment %}
+
+                                <div class="overlay-box">
+                                    <div class="user-content">
+                                        <img src="{{user.members.image.url}}"
+                                                class="thumb-lg img-circle" alt="img">
+                                        <h4 class="text-white mt-2"> <strong>{{user.first_name}}
+                                                {{user.last_name}}</strong></h4>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="POST" class="container mt-3 contact-form" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-row d-flex">
+                                        <div class="form-group col-md-12">
+                                            <label for="image" class="form-label">Upload Profile Picture : </label>
+                                            <input type="file" class="form-control" id="image" name="image"  required>
+                                        </div>
+                                    </div>                                    
+                                    <br>
+
+                                    <div class="form-row d-md-flex">
+                                        <div class="form-group col-md-6">
+                                            <input class="btn gradient-bg px-3 btn-success" type="submit"
+                                                value="Change Profile Picture">
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {% include 'admin/footer.html'%}
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+
+    {% ifequal error 'no'%}
+    <script>
+        alert('Your profile picture has been updated');
+        window.location = ('{% url 'user_profile' %}')
+    </script>
+    {% endifequal %}
+
+
+    {% ifequal error 'yes'%}
+    <script>
+        alert('Something went wrong,Try again...');
+
+    </script>
+    {% endifequal %}
+
+
+
+    {% endblock%}

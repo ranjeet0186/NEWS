@@ -1,0 +1,124 @@
+{% extends 'admin/admin_base.html'%}
+
+{% load i18n static %}
+{%load crispy_forms_tags %}
+{% load static %}
+
+
+{% block content %}
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Profile</h4>
+            </div>
+            
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+
+    
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg"> <img width="100%" alt="user"
+                            src="{% static 'plugins//images/large/img1.jpg'%}">
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                {% for i in form_pic %}
+                                <a href="javascript:void(0)"><img src="{{i.image.url}}" class="thumb-lg img-circle"
+                                        alt="img"></a>
+
+                               <h2> <a class="btn btn-success" href="{% url 'admin_profile_pic' i.id %}">Change Profile</a></h2>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" class="contact-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form|crispy}}
+
+
+
+                            <div class="form-group mb-4 d-md-flex">
+                                <div class="col-sm-9">
+                                    <button class="btn btn-success mb-3" type="submit">Update Profile</button>
+                                </div>
+
+                                {% if user.has_usable_password %}
+
+                                <div class="col-sm-3">
+                                 <a class="btn btn-primary" href="{% url 'change_passwordadmin' %}">{% translate                                      'Change password' %}</a>
+
+                                </div>
+                                {% endif %}
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+   {% include 'admin/footer.html'%}
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+{% endblock%}

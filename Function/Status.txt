@@ -1,0 +1,16 @@
+def delete_category(request, id):
+    print("===============================");
+    del_data = CATEGORY.objects.get(id = id)
+    data10 = del_data.is_home
+    if data10==False:
+        del_data.is_home = True
+        del_data.save()
+    else:
+        del_data.is_home = False
+        del_data.save()
+        
+    print("+++++++++++++++++++++++++++++================")
+    print(data10)
+    # del_data.delete()
+    messages.success(request, "Category Deleted Successfully!!")
+    return redirect('category')
